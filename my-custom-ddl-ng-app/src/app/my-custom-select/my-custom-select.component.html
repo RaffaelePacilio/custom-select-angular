@@ -1,0 +1,24 @@
+<div class="custom-select">
+  <div class="combo-box">
+    <input
+      type="text"
+      [formControl]="searchControl"
+      placeholder="Cerca"
+    />
+    <button class="arrow-icon"
+    [ngClass]="{'test': isDropdownOpen}"
+    (click)="toggleDropdown()">></button>
+    <button
+      class="clear-icon"
+      *ngIf="selectedOption"
+      (click)="clearSelection()"
+    >
+      x
+    </button>
+    <ul class="dropdown" *ngIf="isDropdownOpen">
+      <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+        {{ option.text }}
+      </li>
+    </ul>
+  </div>
+</div>
